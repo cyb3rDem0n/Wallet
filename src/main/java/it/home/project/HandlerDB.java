@@ -13,7 +13,7 @@ public class HandlerDB {
 	
 	private final static Logger log = Logger.getLogger(HandlerDB.class);
 
-	public void viewTable() throws SQLException {
+	public void viewTable() {
 		String driver = "com.mysql.jdbc.Driver";
 		String db_url = "jdbc:mysql://localhost/walletdb?useSSL=false";
 
@@ -34,7 +34,11 @@ public class HandlerDB {
 			log.error(e.getLocalizedMessage());
 		} finally {
 			if (statement != null)
-				statement.close();
+				try {
+					statement.close();
+				} catch (SQLException e) {
+					log.error(e.getLocalizedMessage());
+				}
 		}
 	}
 
@@ -45,7 +49,7 @@ public class HandlerDB {
 	 * @return int
 	 * @throws SQLException
 	 */
-	public int getLastId() throws SQLException {
+	public int getLastId() {
 		String driver = "com.mysql.jdbc.Driver";
 		String db_url = "jdbc:mysql://localhost/walletdb?useSSL=false";
 		int newestId = 0;
@@ -64,12 +68,16 @@ public class HandlerDB {
 			log.error(e.getLocalizedMessage());
 		} finally {
 			if (statement != null)
-				statement.close();
+				try {
+					statement.close();
+				} catch (SQLException e) {
+					log.error(e.getLocalizedMessage());
+				}
 		}
 		return newestId + 1;
 	}
 
-	public void insertMethod(String dbName, String dbSurname) throws SQLException {
+	public void insertMethod(String dbName, String dbSurname) {
 		String driver = "com.mysql.jdbc.Driver";
 		String db_url = "jdbc:mysql://localhost/walletdb?useSSL=false";
 		PreparedStatement insertUser = null;
@@ -90,7 +98,12 @@ public class HandlerDB {
 				log.error(e.getMessage());
 			} finally {
 				if (insertUser != null)
-					insertUser.close();
+					try {
+						insertUser.close();
+					} catch (SQLException e) {
+						log.error(e.getLocalizedMessage());
+
+					}
 			}
 		} else
 			System.err.println("The input values are null");

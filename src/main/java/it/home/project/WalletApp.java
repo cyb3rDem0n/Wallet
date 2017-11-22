@@ -18,7 +18,7 @@ public class WalletApp {
 		HandlerDB db = new HandlerDB();
 		try {
 			if (LoginHandler.login()) {
-				db.insertMethod("Cacca", "Pupu");
+				db.insertMethod("Babbo", "Natale");
 				System.out
 						.println("\n*****************************\n" + " TABLE " + "\n*****************************\n");
 				db.viewTable();

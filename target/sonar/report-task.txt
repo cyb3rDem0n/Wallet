@@ -2,5 +2,5 @@ projectKey=it.home.project:WalletApp
 serverUrl=http://localhost:9000
 serverVersion=6.7.0.33306
 dashboardUrl=http://localhost:9000/dashboard/index/it.home.project:WalletApp
-ceTaskId=AV_g4ahiku2vayBPKAGb
-ceTaskUrl=http://localhost:9000/api/ce/task?id=AV_g4ahiku2vayBPKAGb
+ceTaskId=AV_hOfOhkwtH3HpPAiNU
+ceTaskUrl=http://localhost:9000/api/ce/task?id=AV_hOfOhkwtH3HpPAiNU
